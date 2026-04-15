@@ -1,0 +1,12 @@
+Ejercicio 2:
+    Gson convierte todo el objeto, y el objeto interno se añade al mismo archivo.
+
+Ejercicio 3:
+    El array se transforma en una lista, y si esta dentro de un objeto aparece como un atributo con lista de elementos.
+
+Ejercicio 4:
+    El fichero contiene un objeto principal (Asignatura) con un atributo lista de elementos (Estudiantes).
+
+Ejercicio 5:
+    Con Gson los objetos se escriben en JSON, que es legible y editable, mientras que la serializacion nativa de Java los escribe en binario ilegible.
+    Ademas, la serializacion de Java es mas estricta, a cambio de ser mas eficiente con el tamaño y el rendimiento
