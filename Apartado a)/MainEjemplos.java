@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+// Clase principal (la única pública)
 public class MainEjemplos {
     public static void main(String[] args) {
 
@@ -9,15 +10,16 @@ public class MainEjemplos {
         try {
             Scanner lector = new Scanner(new File("datos.txt"));
             System.out.println("Todo Bien");
+            lector.close();
         } catch (FileNotFoundException error) {
             System.out.println("No se encontró el archivo datos.txt");
         }
 
         System.out.println("---- EJEMPLO 2 ----");
-        // El Ejemplo 2 DEBE tener su propio try-catch para compilar
         try {
             System.out.println("Intentando leer archivo.txt...");
             Scanner lector2 = new Scanner(new File("archivo.txt"));
+            lector2.close();
         } catch (FileNotFoundException e) {
             System.out.println("Error en Ejemplo 2: Archivo no encontrado");
         }
@@ -40,10 +42,27 @@ public class MainEjemplos {
 
         System.out.println("---- EJEMPLO 5 ----");
         try {
-            int[] numeros = {1, 2, 3};
-            System.out.println(numeros[5]);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Error: índice fuera de rango");
+            Ejemplo1_5.comprobarNumero(5);
+        } catch (MiError e) {
+            System.out.println(e.getMessage());
         }
+    }
+}
+
+// Clase de excepción personalizada (NO pública)
+class MiError extends Exception {
+    public MiError(String mensaje) {
+        super(mensaje);
+    }
+}
+
+// Clase auxiliar (NO pública)
+class Ejemplo1_5 {
+
+    public static void comprobarNumero(int n) throws MiError {
+        if (n == 5) {
+            throw new MiError("Número prohibido");
+        }
+        System.out.println("Número válido");
     }
 }
